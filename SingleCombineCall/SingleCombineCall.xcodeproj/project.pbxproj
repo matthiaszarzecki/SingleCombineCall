@@ -13,6 +13,12 @@
 		6EB0BBBF264980A90024009C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB0BBBE264980A90024009C /* Preview Assets.xcassets */; };
 		6EB0BBCA264980AA0024009C /* SingleCombineCallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB0BBC9264980AA0024009C /* SingleCombineCallTests.swift */; };
 		6EB0BBD5264980AA0024009C /* SingleCombineCallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB0BBD4264980AA0024009C /* SingleCombineCallUITests.swift */; };
+		6EC890FF264AFFDD00DFAB3F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC890FE264AFFDD00DFAB3F /* Api.swift */; };
+		6EC89102264B003A00DFAB3F /* HouseBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC89101264B003A00DFAB3F /* HouseBasic.swift */; };
+		6EC89105264B018900DFAB3F /* AllHousesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC89104264B018900DFAB3F /* AllHousesViewModel.swift */; };
+		6EC89107264B01A700DFAB3F /* AllHousesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC89106264B01A700DFAB3F /* AllHousesView.swift */; };
+		6EC89109264B01DA00DFAB3F /* MockClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC89108264B01DA00DFAB3F /* MockClasses.swift */; };
+		6EC8910B264B02A800DFAB3F /* Data-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8910A264B02A800DFAB3F /* Data-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		6EB0BBD0264980AA0024009C /* SingleCombineCallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleCombineCallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB0BBD4264980AA0024009C /* SingleCombineCallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCombineCallUITests.swift; sourceTree = "<group>"; };
 		6EB0BBD6264980AA0024009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EC890FE264AFFDD00DFAB3F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		6EC89101264B003A00DFAB3F /* HouseBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseBasic.swift; sourceTree = "<group>"; };
+		6EC89104264B018900DFAB3F /* AllHousesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHousesViewModel.swift; sourceTree = "<group>"; };
+		6EC89106264B01A700DFAB3F /* AllHousesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHousesView.swift; sourceTree = "<group>"; };
+		6EC89108264B01DA00DFAB3F /* MockClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClasses.swift; sourceTree = "<group>"; };
+		6EC8910A264B02A800DFAB3F /* Data-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				6EB0BBC0264980A90024009C /* Info.plist */,
+				6EC89100264B000A00DFAB3F /* Api */,
 				6EB0BBE42649810A0024009C /* AppDelegate */,
+				6EC8910C264B02AE00DFAB3F /* Extensions */,
+				6EC89103264B012800DFAB3F /* Models */,
 				6EB0BBBD264980A90024009C /* Preview Content */,
 				6EB0BBE2264980FE0024009C /* SupportingFiles */,
 				6EB0BBE3264981060024009C /* Views */,
@@ -108,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				6EB0BBBE264980A90024009C /* Preview Assets.xcassets */,
+				6EC89108264B01DA00DFAB3F /* MockClasses.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -142,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				6EB0BBB9264980A60024009C /* ContentView.swift */,
+				6EC89104264B018900DFAB3F /* AllHousesViewModel.swift */,
+				6EC89106264B01A700DFAB3F /* AllHousesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +170,30 @@
 				6EB0BBB7264980A60024009C /* SingleCombineCallApp.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6EC89100264B000A00DFAB3F /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				6EC890FE264AFFDD00DFAB3F /* Api.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		6EC89103264B012800DFAB3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6EC89101264B003A00DFAB3F /* HouseBasic.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6EC8910C264B02AE00DFAB3F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6EC8910A264B02A800DFAB3F /* Data-Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +325,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EC890FF264AFFDD00DFAB3F /* Api.swift in Sources */,
+				6EC89102264B003A00DFAB3F /* HouseBasic.swift in Sources */,
 				6EB0BBBA264980A60024009C /* ContentView.swift in Sources */,
+				6EC8910B264B02A800DFAB3F /* Data-Extension.swift in Sources */,
+				6EC89107264B01A700DFAB3F /* AllHousesView.swift in Sources */,
+				6EC89105264B018900DFAB3F /* AllHousesViewModel.swift in Sources */,
+				6EC89109264B01DA00DFAB3F /* MockClasses.swift in Sources */,
 				6EB0BBB8264980A60024009C /* SingleCombineCallApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

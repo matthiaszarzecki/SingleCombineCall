@@ -11,7 +11,7 @@ import SwiftUI
 struct SingleCombineCallApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      AllHousesView()
     }
   }
 }
