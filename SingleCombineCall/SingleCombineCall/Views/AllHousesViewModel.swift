@@ -13,11 +13,7 @@ class AllHousesViewModel: ObservableObject {
   private var subscriptions = Set<AnyCancellable>()
   
   public func fetchNextPageIfPossible() {
-    guard state.canLoadNextPage else {
-      return
-    }
-    
-    Api.getHouses(page: state.page)
+    Api.getHouses()
       .sink(
         receiveCompletion: onReceive,
         receiveValue: onReceive
@@ -40,20 +36,16 @@ class AllHousesViewModel: ObservableObject {
       state.intitialLoadingPhase = false
       break
     case .failure:
-      state.canLoadNextPage = false
+      state.showError = true
     }
   }
   
   private func onReceive(_ batch: [HouseBasic]) {
     state.houses += batch
-    state.page += 1
-    state.canLoadNextPage = batch.count == Api.pageSize
   }
   
   struct SearchResultsViewState {
     var houses = [HouseBasic]()
-    var page: Int = 1
-    var canLoadNextPage = true
     var showError = false
     var intitialLoadingPhase = true
   }

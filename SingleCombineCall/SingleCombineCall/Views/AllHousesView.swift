@@ -14,10 +14,8 @@ struct AllHousesView: View {
   var body: some View {
     AllHousesDisplay(
       fetchResults: allHousesViewModel.state.houses,
-      isLoading: allHousesViewModel.state.canLoadNextPage,
       showError: allHousesViewModel.state.showError,
-      intitialLoadingPhase: allHousesViewModel.state.intitialLoadingPhase,
-      onScrolledAtBottom: allHousesViewModel.fetchNextPageIfPossible
+      intitialLoadingPhase: allHousesViewModel.state.intitialLoadingPhase
     )
     .onAppear {
       allHousesViewModel.fetchNextPageIfPossible()
@@ -27,10 +25,8 @@ struct AllHousesView: View {
 
 struct AllHousesDisplay: View {
   let fetchResults: [HouseBasic]
-  let isLoading: Bool
   var showError: Bool
   var intitialLoadingPhase: Bool
-  let onScrolledAtBottom: () -> Void
   
   var body: some View {
     NavigationView {
@@ -39,20 +35,9 @@ struct AllHousesDisplay: View {
       } else if showError {
         Text("Error")
       } else {
-        // This cannot be a scrollview as
-        // that tanks the performance.
         List {
           ForEach(fetchResults) { house in
             Text("\(house.name)")
-            .onAppear {
-              if self.fetchResults.last == house {
-                self.onScrolledAtBottom()
-              }
-            }
-          }
-          
-          if isLoading {
-            Text("Loading More")
           }
         }
         .navigationTitle("All Houses of Westeros")
@@ -67,34 +52,26 @@ struct AllHousesDisplay_Previews: PreviewProvider {
     Group {
       AllHousesDisplay(
         fetchResults: MockClasses.housesBasic,
-        isLoading: false,
         showError: false,
-        intitialLoadingPhase: false,
-        onScrolledAtBottom: {}
+        intitialLoadingPhase: false
       )
       
       AllHousesDisplay(
         fetchResults: MockClasses.housesBasic,
-        isLoading: true,
         showError: false,
-        intitialLoadingPhase: false,
-        onScrolledAtBottom: {}
+        intitialLoadingPhase: false
       )
       
       AllHousesDisplay(
         fetchResults: MockClasses.housesBasic,
-        isLoading: true,
         showError: true,
-        intitialLoadingPhase: false,
-        onScrolledAtBottom: {}
+        intitialLoadingPhase: false
       )
       
       AllHousesDisplay(
         fetchResults: MockClasses.housesBasic,
-        isLoading: true,
         showError: false,
-        intitialLoadingPhase: true,
-        onScrolledAtBottom: {}
+        intitialLoadingPhase: true
       )
     }
   }
