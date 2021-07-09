@@ -40,8 +40,8 @@ class AllHousesViewModel: ObservableObject {
     }
   }
   
-  private func onReceive(_ batch: [HouseBasic]) {
-    state.houses += batch
+  private func onReceive(houses: [HouseBasic]) {
+    state.houses = houses
   }
   
   struct SearchResultsViewState {
