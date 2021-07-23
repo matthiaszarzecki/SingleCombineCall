@@ -12,7 +12,7 @@ class AllHousesViewModel: ObservableObject {
   @Published private(set) var state = SearchResultsViewState()
   private var subscriptions = Set<AnyCancellable>()
   
-  public func loadHouses() {
+  init() {
     Api.getHouses()
       .sink(
         receiveCompletion: onReceiveCompletion,
@@ -24,8 +24,10 @@ class AllHousesViewModel: ObservableObject {
   private func onReceiveCompletion(_ completion: Subscribers.Completion<Error>) {
     switch completion {
     case .finished:
+      print("Success!")
       break
     case .failure:
+      print("Failure!")
       break
     }
   }
