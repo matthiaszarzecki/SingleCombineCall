@@ -10,7 +10,7 @@ import Foundation
 
 struct Api {
   static func getHouses() -> AnyPublisher<[HouseBasic], Error> {
-    let url = URL(string: "https://www.anapioficeandfire.com/api/houses?page=0&pageSize=30")!
+    let url = URL(string: "https://www.anapioficeandfire.com/api/houses")!
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     

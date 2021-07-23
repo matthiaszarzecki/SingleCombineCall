@@ -37,7 +37,16 @@ struct AllHousesDisplay: View {
 struct AllHousesDisplay_Previews: PreviewProvider {
   static var previews: some View {
     AllHousesDisplay(
-      houses: MockClasses.housesBasic
+      houses: [
+        HouseBasic(name: "House Stark"),
+        HouseBasic(name: "House Targaryen"),
+        HouseBasic(name: "House Lannister"),
+        HouseBasic(name: "House Arryn")
+      ]
+    )
+    
+    AllHousesDisplay(
+      houses: []
     )
   }
 }
