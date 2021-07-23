@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// Shows a list of all ASOIAF Houses.
 struct AllHousesView: View {
   @ObservedObject private var allHousesViewModel = AllHousesViewModel()
   
@@ -43,6 +42,10 @@ struct AllHousesDisplay_Previews: PreviewProvider {
         HouseBasic(name: "House Lannister"),
         HouseBasic(name: "House Arryn")
       ]
+    )
+    
+    AllHousesDisplay(
+      houses: []
     )
     
     AllHousesDisplay(

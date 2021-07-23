@@ -10,6 +10,7 @@ import SwiftUI
 
 class AllHousesViewModel: ObservableObject {
   @Published private(set) var state = SearchResultsViewState()
+  
   private var subscriptions = Set<AnyCancellable>()
   
   init() {
