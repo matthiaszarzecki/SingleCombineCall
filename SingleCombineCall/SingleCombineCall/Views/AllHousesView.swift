@@ -13,35 +13,31 @@ struct AllHousesView: View {
   
   var body: some View {
     AllHousesDisplay(
-      fetchResults: allHousesViewModel.state.houses,
-      showError: allHousesViewModel.state.showError,
-      intitialLoadingPhase: allHousesViewModel.state.intitialLoadingPhase
+      houses: allHousesViewModel.state.houses
     )
     .onAppear {
-      allHousesViewModel.fetchNextPageIfPossible()
+      allHousesViewModel.loadHouses()
     }
   }
 }
 
 struct AllHousesDisplay: View {
-  let fetchResults: [HouseBasic]
-  var showError: Bool
-  var intitialLoadingPhase: Bool
+  let houses: [HouseBasic]
   
   var body: some View {
     NavigationView {
-      if intitialLoadingPhase {
-        Text("Loading")
-      } else if showError {
-        Text("Error")
-      } else {
-        List {
-          ForEach(fetchResults) { house in
-            Text("\(house.name)")
+      Group {
+        if houses.isEmpty {
+          Text("Loading")
+        } else {
+          List {
+            ForEach(houses) { house in
+              Text("\(house.name)")
+            }
           }
         }
-        .navigationTitle("All Houses of Westeros")
       }
+      .navigationTitle("All Houses of Westeros")
     }
     .accentColor(.red)
   }
@@ -49,30 +45,8 @@ struct AllHousesDisplay: View {
 
 struct AllHousesDisplay_Previews: PreviewProvider {
   static var previews: some View {
-    Group {
-      AllHousesDisplay(
-        fetchResults: MockClasses.housesBasic,
-        showError: false,
-        intitialLoadingPhase: false
-      )
-      
-      AllHousesDisplay(
-        fetchResults: MockClasses.housesBasic,
-        showError: false,
-        intitialLoadingPhase: false
-      )
-      
-      AllHousesDisplay(
-        fetchResults: MockClasses.housesBasic,
-        showError: true,
-        intitialLoadingPhase: false
-      )
-      
-      AllHousesDisplay(
-        fetchResults: MockClasses.housesBasic,
-        showError: false,
-        intitialLoadingPhase: true
-      )
-    }
+    AllHousesDisplay(
+      houses: MockClasses.housesBasic
+    )
   }
 }
